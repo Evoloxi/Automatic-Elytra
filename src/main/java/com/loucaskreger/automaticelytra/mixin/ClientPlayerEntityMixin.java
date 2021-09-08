@@ -38,7 +38,7 @@ public class ClientPlayerEntityMixin {
     private void endTickMovement(CallbackInfo ci) {
         var player = (ClientPlayerEntity) (Object) this;
         var interactionManager = MinecraftClient.getInstance().interactionManager;
-        if (player.isOnGround() || player.isTouchingWater()) {
+        if (player.isOnGround()) {
             player.checkFallFlying();
             if (this.lastIndex != -1) {
                 interactionManager.clickSlot(player.playerScreenHandler.syncId, CHESTPLATE_INDEX, lastIndex, SlotActionType.SWAP, player);
